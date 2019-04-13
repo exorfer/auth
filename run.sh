@@ -1,0 +1,1 @@
+java -jar out/auth.jar "@0"
