@@ -1,1 +1,2 @@
-java -jar out/auth.jar "@0"
+#!/usr/bin/env bash
+java -jar out/auth.jar "$@"
