@@ -1,9 +1,15 @@
 package com.exorfer.auth
 
 class CmdService {
-    fun parse(args: Array<String>): Cmd = Cmd(login = args.get(1), pass = args.get(3), h = false)
+    fun parse(args: Array<String>): Cmd {
+        val cmd= when (args.size) {
+            4 -> Cmd(login = args.get(1), pass = args.get(3), h = false)
+            else -> Cmd(login = "", pass = "", h = true)
+        }
+        return cmd
+    }
 
     fun help() {
-        println("Здесь могла быть ваша справка")
+        println("Incorrect command\nПример: -login login -pass password")
     }
 }
