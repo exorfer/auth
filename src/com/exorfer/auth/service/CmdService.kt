@@ -1,4 +1,6 @@
-package com.exorfer.auth
+package com.exorfer.auth.service
+
+import com.exorfer.auth.domain.Cmd
 
 class CmdService {
     fun parse(args: Array<String>): Cmd {

@@ -1,4 +1,7 @@
-package com.exorfer.auth
+package com.exorfer.auth.service
+
+import com.exorfer.auth.domain.Cmd
+import com.exorfer.auth.domain.User
 
 class BuisnessLogic {
     fun authenticate(cmd: Cmd, users: List<User>) {
@@ -15,8 +18,8 @@ class BuisnessLogic {
         Если пароль не найден exit(4)(неверный пароль),
         и если код не нашел юзера в базе - exit(2)(неверный логин)*/
         if (usr != null) {
-                if (UserService().validatePass(cmd.pass, usr)) System.exit(0)
-                else System.exit(4)
-            } else System.exit(3)
-        }
+            if (UserService().validatePass(cmd.pass, usr)) System.exit(0)
+            else System.exit(4)
+        } else System.exit(3)
     }
+}

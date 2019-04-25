@@ -1,16 +1,19 @@
-package com.exorfer.auth
+package com.exorfer.auth.service
 
+//import com.exorfer.auth.domain.User
 import java.security.MessageDigest
-
+import com.exorfer.auth.domain.User
 
 class UserService {
     //сверяю логин с базой данных
     fun findUserByLogin(users: List<User>, login: String): User? = users.find { it.login == login }
+
     //сверяю пароль с базой данный
-    fun validatePass(password:String, user:User): Boolean {
+    fun validatePass(password: String, user: User): Boolean {
         val hashedstr = hash(s = password + user.salt)
         return user.pass.equals(hashedstr)
     }
+
     //хэширую сверяемый пароль
     fun hash(s: String): String {
         val bytes = s.toByteArray()
@@ -18,6 +21,7 @@ class UserService {
         val digest = md.digest(bytes)
         return digest.fold("", { str, it -> str + "%02x".format(it) })
     }
+
     //проверка на правильность формата логина
     fun doggy(s: String): Boolean {
         var dog = false
