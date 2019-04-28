@@ -10,8 +10,9 @@ class BuisnessLogic {
             CmdService().help()
             System.exit(1)
         }
+
         //если неверен формат логина(не email)
-        if (!UserService().doggy(cmd.login)) System.exit(2)//если неверен формат логина(не email)
+        if (!cmd.login.matches((Regex("""^[-.\w]+@(?:[a-z\d]{2,}\.)+[a-z]{2,6}${'$'}""")))) System.exit(2)
 
         val usr = UserService().findUserByLogin(users, cmd.login)
         /* алгоритм такой: если код нашел какого-то юзера, проверяется его пароль, если совпадает пароль - exit(0) и все ОК.

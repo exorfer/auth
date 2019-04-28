@@ -22,15 +22,4 @@ class UserService {
         return digest.fold("", { str, it -> str + "%02x".format(it) })
     }
 
-    //проверка на правильность формата логина
-    fun doggy(s: String): Boolean {
-        var dog = false
-        for (char in s) {
-            if (char == '@') {
-                dog = true
-                break
-            }
-        }
-        return dog
-    }
 }
