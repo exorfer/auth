@@ -4,7 +4,7 @@ import com.exorfer.auth.domain.Cmd
 
 class CmdService {
     fun parse(args: Array<String>): Cmd {
-        val cmd= when (args.size) {
+        val cmd = when (args.size) {
             4 -> Cmd(login = args.get(1), pass = args.get(3), h = false)
             else -> Cmd(login = "", pass = "", h = true)
         }
