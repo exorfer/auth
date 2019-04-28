@@ -1,6 +1,6 @@
 install: true
 jdk:
-  - openjdk12
+  - openjdk11
 script:
   - curl -s get.sdkman.io | bash
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
