@@ -1,3 +1,4 @@
+dist: xenial
 install: true
 jdk:
   - openjdk11
@@ -8,4 +9,3 @@ script:
   - source "/home/travis/.sdkman/bin/sdkman-init.sh"
   - sdk install kotlin
   - ./test.sh
-  - dist: xenial
