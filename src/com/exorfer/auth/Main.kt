@@ -24,7 +24,8 @@ fun main(args: Array<String>) {
             "mrNSSJEnUcnCoKNFAMHdwxhvUmzDeyQFxTSuSBpcidFoYMNWGJVr"
         )
     )
-
-    val command: Cmd = CmdService().parse(args)
-    BuisnessLogic().authenticate(command, users, CmdService(), UserService())
+    val cmdService = CmdService()
+    val userService = UserService()
+    val command: Cmd = cmdService.parse(args)
+    BuisnessLogic(cmdService, userService).authenticate(command, users)
 }

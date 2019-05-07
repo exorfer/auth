@@ -3,12 +3,10 @@ package com.exorfer.auth.service
 import com.exorfer.auth.domain.Cmd
 import com.exorfer.auth.domain.User
 
-class BuisnessLogic() {
+class BuisnessLogic(val commandService: CmdService, val UserService: UserService) {
     fun authenticate(
         cmd: Cmd,
-        users: List<User>,
-        commandService: CmdService,
-        UserService: UserService
+        users: List<User>
     ) {
         //если неправильно введена команда и нужно вывести справку
         if (cmd.h) {
